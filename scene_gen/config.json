@@ -1,0 +1,24 @@
+{
+  "name": "Scene Generator",
+  "version": "0.5",
+  "slug": "scene_gen",
+  "description": "Generate scene files based on current states",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "before",
+  "url": "https://github.com/Apipa169/",
+  "boot": "auto",
+  "options": {
+    "types": "light,switch",
+    "store_in_folder": "false",
+    "scene_name": "name_of_scene",
+    "url": "url of your home assistant",
+    "token":"token"
+  },
+  "schema": {
+    "types": "str",
+    "store_in_folder": "bool",
+    "url": "str",
+    "scene_name": "str",
+    "token":"str"
+  }
+}

@@ -1,0 +1,18 @@
+ARG BUILD_FROM
+FROM $BUILD_FROM
+
+ENV LANG C.UTF-8
+
+WORKDIR /data
+
+RUN apk add --no-cache python3
+RUN apk add --no-cache git
+
+RUN pip3 install --upgrade pip
+RUN pip3 install configparser
+RUN pip3 install requests
+RUN pip3 install pyyaml
+
+COPY run.sh /
+RUN chmod a+x /run.sh
+CMD [ "/run.sh" ]
