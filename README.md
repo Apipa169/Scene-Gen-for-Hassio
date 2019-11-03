@@ -13,12 +13,20 @@ Add to Configuration.yaml:
 scene: !include_dir_list scenes
 ```
 
+<<<<<<< HEAD
 1. Add https://github.com/Apipa169/Scene-Gen-for-Hassio in the addon store.
 2. Install the addon
 3. Edit the config (see below)
 4. Start the addon and see the log if everything went fine without errors.
 5. Open de scene file at /config/scenes to remove entities you don't want to have in your scene and save it.
 6. Scene is now available in Home Assistant. (don't forget to reload scenes)
+=======
+- Add https://github.com/Apipa169/Scene-Gen-for-Hassio in the addon store.
+- Install the addon
+- Edit the config (see below)
+- Start the addon and see if everything went fine without errors.
+- Scene is now available in Home Assistant. (don't forget to reload)
+>>>>>>> 0721b28020d7d216f39233b3c38121328d0fe92c
 
 
 ### Configuration
