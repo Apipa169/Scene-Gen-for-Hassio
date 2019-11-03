@@ -15,7 +15,7 @@ Add to Configuration.yaml:
 scene: !include_dir_list scenes
 ```
 
-- Add https://github.com/Apipa169/assistant_relay_hassio in the addon store.
+- Add https://github.com/Apipa169/Scene-Gen-for-Hassio in the addon store.
 - Install the addon
 - Edit the config (see below)
 - Start the addon and see if everything went fine without errors.
