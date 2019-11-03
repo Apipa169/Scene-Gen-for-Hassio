@@ -12,7 +12,7 @@ fi
 
 DIR="/config/scenes"
 if [ ! -d "$DIR" ]; then
-	echo Creating scenes folder...
+	echo Creating scenes folder... This needs to be done once. 
 	mkdir /config/scenes
 fi
 
@@ -21,7 +21,9 @@ if [ ! -f "$SCENE_FILE" ]
 then
 echo Putting all states into /config/scenes/$SCENE_NAME
 /scenegen/scenegen.py $URL -k $TOKEN --scenename $SCENE_NAME --types $TYPES > /config/scenes/$SCENE_NAME.yaml
-echo No errors seen? Congratulations! Your scene is saved in /config/scenes/. You may need to remove entities you do not want to have in de scene manually.
+echo No errors seen? Congratulations! 
+echo Your scene is saved in /config/scenes/$SCENE_NAME.yaml 
+echo You may need to remove entities you do not want to have in de scene manually.
 else
 echo SCENE FILE ALREADY EXIST! Aborting...
 fi
