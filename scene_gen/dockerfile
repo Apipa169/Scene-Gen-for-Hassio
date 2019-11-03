@@ -3,15 +3,16 @@ FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
 
-WORKDIR /data
+WORKDIR /
 
-RUN apk add --no-cache python3
-RUN apk add --no-cache git
-
-RUN pip3 install --upgrade pip
-RUN pip3 install configparser
-RUN pip3 install requests
-RUN pip3 install pyyaml
+RUN apk add --no-cache python3 \
+&& apk add --no-cache git \
+&& pip3 install --upgrade pip \
+&& pip3 install configparser \
+&& pip3 install requests \
+&& pip3 install pyyaml \
+&& mkdir /scenegen \
+&& git clone https://github.com/home-assistant/scenegen.git /scenegen
 
 COPY run.sh /
 RUN chmod a+x /run.sh

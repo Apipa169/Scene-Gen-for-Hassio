@@ -1,6 +1,6 @@
 {
   "name": "Scene Generator",
-  "version": "0.6.1",
+  "version": "1.0",
   "slug": "scene_gen",
   "description": "Generate scene files based on current states",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
