@@ -1,1 +1,1 @@
-First release!
+The files are now exported to a file! See instructions.
