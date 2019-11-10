@@ -1,14 +1,8 @@
 CONFIG_PATH=/data/options.json
-TYPES=$(jq --raw-output ".types" $CONFIG_PATH)
 SCENE_NAME=$(jq --raw-output ".scene_name" $CONFIG_PATH)
 URL=$(jq --raw-output ".url" $CONFIG_PATH)
 TOKEN=$(jq --raw-output ".token" $CONFIG_PATH)
-
-SCRIPT="/scenegen/scenegen.py"
-if [ ! -f "$SCRIPT" ]
-then
-echo ERROR: Please reinstall the addon. Don not forget to copy your config.
-fi
+FILTER=$(jq --raw-output ".filter" $CONFIG_PATH)
 
 DIR="/config/scenes"
 if [ ! -d "$DIR" ]; then
@@ -20,7 +14,16 @@ SCENE_FILE="/config/scenes/$SCENE_NAME.yaml"
 if [ ! -f "$SCENE_FILE" ]
 then
 echo Putting all states into /config/scenes/$SCENE_NAME
-/scenegen/scenegen.py $URL -k $TOKEN --scenename $SCENE_NAME --types $TYPES > /config/scenes/$SCENE_NAME.yaml
+
+
+if [ -n "$FILTER" ]
+then
+    echo Using the filter: $FILTER
+	/scenegen/scenegen.py $URL -k $TOKEN -m /config/scenes/map.cfg -f "$FILTER" -s $SCENE_NAME > /config/scenes/$SCENE_NAME.yaml
+else
+	/scenegen/scenegen.py $URL -k $TOKEN --scenename $SCENE_NAME > /config/scenes/$SCENE_NAME.yaml
+fi
+
 echo No errors seen? Congratulations! 
 echo Your scene is saved in /config/scenes/$SCENE_NAME.yaml 
 echo You may need to remove entities you do not want to have in de scene manually.

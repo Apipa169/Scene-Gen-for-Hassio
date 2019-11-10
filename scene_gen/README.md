@@ -1,7 +1,7 @@
 # Scene Generator for Hassio
 This add-on is using SceneGen from Home assistant. This add-on is a simple script to bring it to Hass.io.
 
-When started the script will add the current state of **all** lights/switches to a file. The file can be found at /config/scenes/. Currently you have to edit the file to filter out the entities you don't want to save in the scene.
+When started the script will add the current state of **all** lights/switches to a file. The file can be found at /config/scenes/. 
 
 This add-on will only run to generate a scene file and will then end automatically.
 
@@ -25,18 +25,30 @@ scene: !include_dir_list scenes
 
 | config        | used for          |
 | ------------- |-------------|
-| types      | can be light and/or switch. Comma seperated (no space) |
-| scene_name | name of the scene     |
-| url | url of your Home assistant installation |
+| filter      | Filter entities. See below. |
+| scene_name | Name of the scene     |
+| url | Url of your Home assistant installation |
 | token | Create Long Lived Access Token and put it here |
 
 
-##### example
+#### example
 ```json
 {
-  "types": "light,switch",
+  "filter": "",
   "scene_name": "name_of_scene",
   "url": "https://homeassistant.domain.com",
   "token": "token"
 }
 ```
+##### filter
+The filter can be left empty to get all switches and lights. If you want to filter you have to create a file called map.cfg in /config/scenes. This is a .ini formatted file.
+
+Example:
+```ini
+[Living Room]
+light.living_room_front:
+light.living_room_back:
+[Bedroom]
+light.bedside:
+```
+Put the name(s) between [] in the filter setting of the add-on (comma seperated, no spaces).
