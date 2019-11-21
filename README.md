@@ -1,4 +1,8 @@
 # Scene Generator for Hassio
+
+This add-on is no longer required. Home Assistant 0.102 or higher has an intergraded scene generator.
+
+
 This add-on is using SceneGen from Home assistant. This add-on is a simple script to bring it to Hass.io.
 
 When started the script will add the current state of **all** lights/switches to a file. The file can be found at /config/scenes/. 
