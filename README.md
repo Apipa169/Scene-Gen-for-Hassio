@@ -1,3 +1,5 @@
+![Not maintained][maintained-shield]
+
 # Scene Generator for Hassio
 
 This add-on is no longer needed to create scenes. Home Assistant 0.102 or higher has an intergraded scene generator.
@@ -56,3 +58,6 @@ light.living_room_back:
 light.bedside:
 ```
 Put the name(s) between [] in the filter setting of the add-on (comma seperated, no spaces).
+
+
+[maintained-shield]: https://img.shields.io/badge/maintained-no-red.svg
